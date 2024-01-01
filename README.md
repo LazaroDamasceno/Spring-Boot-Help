@@ -6,7 +6,6 @@ spring.datasource.url=jdbc:h2:mem:app<br>
 spring.datasource.driver-class-name=org.h2.Driver<br>
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect<br>
 spring.datasource.username=sa<br>
-##spring.datasource.password=root<br>
 spring.h2.console.path=/api<br>
 spring.h2.console.enabled=true<br>
 spring.jpa.defer-datasource-initialization=true<br>
