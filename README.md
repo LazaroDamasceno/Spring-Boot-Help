@@ -2,18 +2,21 @@
 
 ## PostgreSQL
 
-spring.jpa.database=postgresql<br>
-spring.sql.init.platform=postgresql<br>
-spring.datasource.driver-class-name=org.postgresql.Driver<br>
-spring.datasource.url=jdbc:postgresql://<br>
-spring.datasource.username=<br>
-spring.datasource.password=<br>
-spring.datasource.hikari.maximum-pool-size=2<br>
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect<br>
-spring.jpa.hibernate.ddl-auto=update<br>
+```
+spring.jpa.database=postgresql
+spring.sql.init.platform=postgresql
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.hikari.maximum-pool-size=2<
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update<
+```
 
 # POM
 
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -110,4 +113,5 @@ spring.jpa.hibernate.ddl-auto=update<br>
 	</build>
 
 </project>
+```
 
