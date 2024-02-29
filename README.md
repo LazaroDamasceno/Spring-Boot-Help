@@ -9,9 +9,9 @@ spring.datasource.driver-class-name=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://
 spring.datasource.username=
 spring.datasource.password=
-spring.datasource.hikari.maximum-pool-size=2<
+spring.datasource.hikari.maximum-pool-size=2
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.hibernate.ddl-auto=update<
+spring.jpa.hibernate.ddl-auto=update
 ```
 
 # POM
