@@ -28,9 +28,9 @@ spring.jpa.hibernate.ddl-auto=update
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api</groupId>
-	<artifactId>v1</artifactId>
+	<artifactId>[]</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>v2</name>
+	<name>[]</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
