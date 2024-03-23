@@ -1,5 +1,16 @@
 # Aplication.property
 
+## Activate async in Spring Boot
+
+```
+@Configuration
+@EnableAsync(proxyTargetClass = true)
+public class SpringAsyncConfig {
+}
+```
+
+Add `@Async` above the method. And use `CompletableFuture<?>` as the returning type of the method.
+
 ## PostgreSQL
 
 ```
