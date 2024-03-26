@@ -9,7 +9,9 @@ public class SpringAsyncConfig {
 }
 ```
 
-Add `@Async` above the method. And use `CompletableFuture<?>` as the returning type of the method.
+Add `@Async` above the method. And use `CompletableFuture<?>` as the returning type of the method. 
+
+The interface `Future`can be also used.
 
 ## H2 In-Memory Database
 
