@@ -11,6 +11,23 @@ public class SpringAsyncConfig {
 
 Add `@Async` above the method. And use `CompletableFuture<?>` as the returning type of the method.
 
+## H2 In-Memory Database
+
+```
+# H2 Database Configuration
+spring.datasource.url=jdbc:h2:mem:mydb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.h2.console.enabled=true
+spring.h2.console.path=/api
+
+# Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+```
+
 ## PostgreSQL
 
 ```
