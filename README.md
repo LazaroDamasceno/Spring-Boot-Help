@@ -41,6 +41,7 @@ spring.datasource.username=
 spring.datasource.password=
 spring.datasource.hikari.maximum-pool-size=2
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
 ```
 
