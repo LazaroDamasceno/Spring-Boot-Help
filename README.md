@@ -45,6 +45,8 @@ spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
 ```
 
+Use the setting above with (elephantsql)[https://www.elephantsql.com/].
+
 # POM
 
 ```
