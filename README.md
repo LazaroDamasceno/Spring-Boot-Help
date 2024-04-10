@@ -1,5 +1,20 @@
 # Aplication.property
 
+## 1:N
+
+```
+@ManyToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "physician_id")
+@JsonBackReference
+private Physician physician;
+```
+
+```
+@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "physician")
+@JsonManagedReference
+private List<MedicalAppointment> appointmentList;
+```
+
 ## MySQL
 
 ```
