@@ -1,17 +1,14 @@
 # Aplication.property
 
-## Activate async in Spring Boot
+## MySQL
 
 ```
-@Configuration
-@EnableAsync(proxyTargetClass = true)
-public class SpringAsyncConfig {
-}
+spring.datasource.url=jdbc:mysql://localhost:3306/[db_name]
+spring.datasource.username=[db_user_name]
+spring.datasource.password=[db_password]
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
 ```
-
-Add `@Async` above the method. And use `CompletableFuture<?>` as the returning type of the method. 
-
-The interface `Future` can be also used.
 
 ## PostgreSQL
 
