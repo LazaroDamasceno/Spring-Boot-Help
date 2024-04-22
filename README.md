@@ -3,10 +3,10 @@
 ## Customized annotation
 
 `
-@Retention(RetentionPolicy.RUNTIME)<br>
-@Target(ElementType.PARAMETER)<br>
-@NotNull<br>
-@Size(min = 9, max = 9)<br>
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.PARAMETER)
+@NotNull
+@Size(min = 9, max = 9)
 public @interface SSN {
   String message() default "Invalid SSN format. Please enter a 9-digit Social Security Number.";
 } 
