@@ -2,7 +2,7 @@
 
 ## Customized annotation
 
-`
+```
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.PARAMETER)
 @NotNull
@@ -10,7 +10,7 @@
 public @interface SSN {
   String message() default "Invalid SSN format. Please enter a 9-digit Social Security Number.";
 } 
-`
+```
 
 ## 1:N
 
