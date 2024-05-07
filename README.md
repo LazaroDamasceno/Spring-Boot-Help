@@ -22,39 +22,6 @@ public @interface SSN {
 } 
 ```
 
-```
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.PARAMETER)
-@NotNull
-@Size(min = 18, max = 18)
-@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$")
-public @interface DateFormat {
-  String message() default "Invalid date time format. Please enter date time as dd/mm/yyyy hh:mm:ss.";
-}
-```
-
-```
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.PARAMETER)
-@NotNull
-@Size(min = 18, max = 18)
-@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4}) ([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
-public @interface DateTimeFormat {
-  String message() default "Invalid date time format. Please enter date time as dd/mm/yyyy hh:mm:ss.";
-}
-```
-
-```
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.PARAMETER)
-@NotNull
-@Size(min = 18, max = 18)
-@Pattern(regexp = "^([0-9]{2})-([0-9]{2})-([0-9]{4}) ([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$")
-public @interface DateTimeFormatForGET {
-  String message() default "Invalid date time format. Please enter date time as dd/mm/yyyy hh:mm:ss.";
-}
-```
-
 ## 1:N
 
 ```
