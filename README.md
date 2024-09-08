@@ -81,134 +81,92 @@ Use the setting above with [elephantsql](https://www.elephantsql.com/).
 # Reactive test
 
 ```
-package com.api.v1;
+package com.api.v1.borrow;
 
-import com.api.v1.dtos.requests.NewCustomerRequestDto;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import java.time.LocalDate;
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CustomerTests {
+public class ManyBorrowsTest {
 
-	@Autowired
-	private WebTestClient webTestClient;
+    @Autowired
+    private WebTestClient webTestClient;
 
-	@Test
-	void testSuccessfulCustomerRegistration() {
+    @Test
+    @Order(1)
+    void testSuccessfulManyBookBorrowings() {
 
-		var newCustomer = new NewCustomerRequestDto(
-				"Leo",
-				"",
-				"Santos",
-				"123456789",
-				LocalDate.parse("2000-12-12"),
-				"leosantos@mail.com",
-				"St. Dennis, Paris",
-				"1234567890",
-				"male"
-		);
+        int testcases = 10;
 
-		webTestClient
-				.post()
-				.uri("api/v1/customers")
-				.bodyValue(newCustomer)
-				.exchange()
-				.expectStatus().is2xxSuccessful();
-	}
+        while(testcases > 0) {
+            String ssn = "123456789";
+            String isbn = "123456789012";
+            String endpoint = "api/v1/borrows/%s/%s".formatted(ssn, isbn);
 
-	@Test
-	void testUnsuccessfulCustomerRegistration() {
+            webTestClient
+                    .post()
+                    .uri(endpoint)
+                    .exchange()
+                    .expectStatus()
+                    .is2xxSuccessful();
 
-		var newCustomer = new NewCustomerRequestDto(
-				"Leo",
-				"",
-				"Santos",
-				"123456789",
-				LocalDate.parse("2000-12-12"),
-				"leosantos@mail.com",
-				"St. Dennis, Paris",
-				"1234567890",
-				"male"
-		);
+            testcases--;
+        }
 
-		webTestClient
-				.post()
-				.uri("api/v1/customers")
-				.bodyValue(newCustomer)
-				.exchange()
-				.expectStatus().is5xxServerError();
-	}
 
-	@Test
-	void testSuccessfulCustomerUpdate() {
+    }
 
-		var newCustomer = new NewCustomerRequestDto(
-				"Leo",
-				"Silva",
-				"Santos Jr",
-				"123456789",
-				LocalDate.parse("2000-12-12"),
-				"jr@leosantos.com",
-				"St. Dennis, Paris, Europe",
-				"0987654321",
-				"cis male"
-		);
+    @Test
+    @Order(2)
+    void testUnsuccessfulBookBorrowing1() {
 
-		webTestClient
-				.put()
-				.uri("api/v1/customers")
-				.bodyValue(newCustomer)
-				.exchange()
-				.expectStatus().is2xxSuccessful();
-	}
+        String ssn = "123456788";
+        String isbn = "123456789012";
+        String endpoint = "api/v1/borrows/%s/%s".formatted(ssn, isbn);
 
-	@Test
-	void testUnsuccessfulCustomerUpdate() {
+        webTestClient
+                .post()
+                .uri(endpoint)
+                .exchange()
+                .expectStatus()
+                .is5xxServerError();
+    }
 
-		var newCustomer = new NewCustomerRequestDto(
-				"Leo",
-				"",
-				"Santos Jr",
-				"123456788",
-				LocalDate.parse("2000-12-12"),
-				"jr@leosantos.com",
-				"St. Dennis, Paris, Europe",
-				"0987654321",
-				"cis male"
-		);
+    @Test
+    void testUnsuccessfulBookBorrowing2() {
 
-		webTestClient
-				.put()
-				.uri("api/v1/customers")
-				.bodyValue(newCustomer)
-				.exchange()
-				.expectStatus().is5xxServerError();
-	}
+        String ssn = "123456789";
+        String isbn = "123456789011";
+        String endpoint = "api/v1/borrows/%s/%s".formatted(ssn, isbn);
 
-	@Test
-	void testSuccessfulAllCustomersDeletion() {
-		webTestClient
-				.delete()
-				.uri("api/v1/customers")
-				.exchange()
-				.expectStatus()
-				.is2xxSuccessful();
+        webTestClient
+                .post()
+                .uri(endpoint)
+                .exchange()
+                .expectStatus()
+                .is5xxServerError();
+    }
 
-	}
+    @Test
+    void testUnsuccessfulBookBorrowing3() {
 
-	@Test
-	void testUnsuccessfulAllCustomersDeletion() {
-		webTestClient
-				.delete()
-				.uri("api/v1/customers")
-				.exchange()
-				.expectStatus()
-				.is5xxServerError();
-	}
+        String ssn = "123456789";
+        String isbn = "123456789012";
+        String endpoint = "api/v1/borrows/%s/%s".formatted(ssn, isbn);
+
+        webTestClient
+                .put()
+                .uri(endpoint)
+                .exchange()
+                .expectStatus()
+                .is4xxClientError();
+    }
 
 }
 ```
