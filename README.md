@@ -170,3 +170,17 @@ public class ManyBorrowsTest {
 
 }
 ```
+
+## Reactive Postgres
+
+```
+spring.r2dbc.url=r2dbc:postgresql://localhost:5432/postgres
+spring.r2dbc.username=postgres
+spring.r2dbc.password=postgres
+
+spring.flyway.enabled=true
+spring.flyway.url=jdbc:postgresql://localhost:5432/postgres
+spring.flyway.user=postgres
+spring.flyway.password=postgres
+```
+
