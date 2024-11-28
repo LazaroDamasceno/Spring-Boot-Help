@@ -184,3 +184,21 @@ spring.flyway.user=postgres
 spring.flyway.password=postgres
 ```
 
+## Java Offset Hours
+
+```
+import java.time.Instant;
+import java.time.ZoneId;
+
+public class Main {
+    public static void main(String[] args) {
+        int offsetHours = ZoneId
+                .of(ZoneId.systemDefault().toString())
+                .getRules()
+                .getOffset(Instant.now())
+                .getTotalSeconds() / 3600;
+        System.out.println(offsetHours);
+    }
+}
+```
+
