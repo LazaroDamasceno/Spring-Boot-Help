@@ -209,3 +209,5 @@ CREATE KEYSPACE my_keyspace
 WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': '1' }
 AND durable_writes = 'true';
 ```
+
+The recommended replication factor is 3.
