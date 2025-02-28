@@ -202,12 +202,12 @@ public class Main {
 }
 ```
 
-## Apache Cassandra's keyspace setting command
+## Global Exception Handler
 
-```
-CREATE KEYSPACE my_keyspace 
-WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': '1' }
-AND durable_writes = 'true';
-```
+@ControllerAdvice
+public class GlobalExceptionHandler {
 
-The recommended replication factor is 3.
+    @ExceptionHandler(DuplicatedSsnException.class)
+    public ResponseEntity<String> handleException(DuplicatedSsnException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+    }
