@@ -212,4 +212,5 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleException(DuplicatedSsnException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
+}
 ```
