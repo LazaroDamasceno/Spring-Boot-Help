@@ -171,6 +171,50 @@ public class ManyBorrowsTest {
 }
 ```
 
+## MVC test
+
+```
+@AutoConfigureMockMvc
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class CustomerRegistrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    CustomerRegistrationDto registrationDto = new CustomerRegistrationDto(
+            new PersonRegistrationDto(
+                    "Leo",
+                    "",
+                    "Santos",
+                    LocalDate.parse("2000-12-12"),
+                    "123456789",
+                    "leosantos@mail.com",
+                    "1234567890",
+                    Gender.CIS_MALE
+            ),
+            new Address(
+                    "CA",
+                    "LA",
+                    "Downtown",
+                    "90012"
+            )
+    );
+
+    @Test
+    @Order(1)
+    void testSuccessfulRegistration() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/api/v2/customers")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(registrationDto))
+        ).andExpect(status().is2xxSuccessful());
+    }
+```
+
 ## Reactive Postgres
 
 ```
