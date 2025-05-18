@@ -258,3 +258,9 @@ public class GlobalExceptionHandler {
     }
 }
 ```
+## Pivot dat
+
+```
+data_long <- pivot_longer(data, cols = c(column1, column2), 
+                          names_to = "", values_to = "")
+```
