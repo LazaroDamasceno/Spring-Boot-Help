@@ -275,3 +275,49 @@ geom_bar(stat="identity", position="dodge")
     size = 3
   )
 ```
+```
+library(ggplot2)
+library(tidyr)
+
+my_data <- data.frame(
+  Objects = c('A', 'B', 'C'),
+  P2000 = c(30,40,50),
+  P2010 = c(50,60,70),
+  P2020 = c(60,70,80)
+)
+
+
+data_long = pivot_longer(
+  my_data,
+  cols = c(P2000, P2010, P2020),
+  names_to = "Year",
+  values_to = "Percentage"
+)
+
+ggplot(
+    data_long, 
+    aes(Objects, Percentage, fill = Year)
+  ) +
+  geom_bar(
+    stat = "identity",
+    position = "dodge"
+  ) +
+  geom_text(
+    aes(label = paste0(Percentage, "%")),
+    position = position_dodge(width = 0.9),
+    hjust = -0.1,
+    size = 3
+  ) +
+  coord_flip() +
+  labs(
+    title = "Title",
+    x = "Y",
+    y = "%",
+    fill = "Year",
+    caption = "Caption",
+    subtitle = "Subtitle"
+  ) +
+  scale_fill_discrete(labels = c(2000, 2010, 2020)) +
+  ylim(0, 100)
+  theme_gray()
+```
