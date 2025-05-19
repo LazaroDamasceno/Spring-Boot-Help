@@ -276,6 +276,17 @@ geom_bar(stat="identity", position="dodge")
   )
 ```
 ```
+  geom_label(
+    aes(label = paste0(Percentage, "%")),
+    position = position_dodge(width = 0.9),
+    hjust = -0.1,
+    size = 3,
+    label.padding = unit(0.25, "lines"),
+    label.r = unit(0.15, "lines"),
+    label.size = 0.25,
+  )
+```
+```
 library(ggplot2)
 library(tidyr)
 
