@@ -267,3 +267,11 @@ data_long <- pivot_longer(data, cols = c(column1, column2),
 ```
 geom_bar(stat="identity", position="dodge")
 ```
+```
+  geom_text(
+    aes(label = paste0(Percentage, "%")),
+    position = position_dodge(width = 0.9),
+    hjust = -0.1,
+    size = 3
+  )
+```
