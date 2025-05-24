@@ -331,32 +331,3 @@ ggplot(
   ylim(0, 100)
   theme_gray()
 ```
-```
-library(ggplot2)
-library(tidyr)
-
-df <- data.frame(
-  p2000 = c(30,40,50),
-  p2010 = c(50,60,70),
-  p2020 = c(75,80,90),
-  tests = c('A', 'B', 'C')
-)
-
-pl <- pivot_longer(
-  df, 
-  cols = c(p2000, p2010, p2020),
-  names_to = "Year", 
-  values_to = "Percentages"
-)
-
-ggplot(pl, aes(x = Percentages, y = tests, fill=Year)) +
-  geom_bar(
-    stat = "identity",
-    position = "dodge"
-  ) +
-  labs(
-    x = "X",
-    y = "Y",
-    title = "Title",
-  )
-```
