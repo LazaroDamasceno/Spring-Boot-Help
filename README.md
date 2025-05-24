@@ -297,7 +297,6 @@ my_data <- data.frame(
   P2020 = c(60,70,80)
 )
 
-
 data_long = pivot_longer(
   my_data,
   cols = c(P2000, P2010, P2020),
@@ -331,4 +330,33 @@ ggplot(
   scale_fill_discrete(labels = c(2000, 2010, 2020)) +
   ylim(0, 100)
   theme_gray()
+```
+```
+library(ggplot2)
+library(tidyr)
+
+df <- data.frame(
+  p2000 = c(30,40,50),
+  p2010 = c(50,60,70),
+  p2020 = c(75,80,90),
+  tests = c('A', 'B', 'C')
+)
+
+pl <- pivot_longer(
+  df, 
+  cols = c(p2000, p2010, p2020),
+  names_to = "Year", 
+  values_to = "Percentages"
+)
+
+ggplot(pl, aes(x = Percentages, y = tests, fill=Year)) +
+  geom_bar(
+    stat = "identity",
+    position = "dodge"
+  ) +
+  labs(
+    x = "X",
+    y = "Y",
+    title = "Title",
+  )
 ```
