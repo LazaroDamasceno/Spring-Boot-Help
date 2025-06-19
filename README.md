@@ -258,76 +258,25 @@ public class GlobalExceptionHandler {
     }
 }
 ```
-## R
+## Pandas
 
 ```
-data_long <- pivot_longer(data, cols = c(column1, column2), 
-                          names_to = "", values_to = "")
-```
-```
-geom_bar(stat="identity", position="dodge")
-```
-```
-  geom_text(
-    aes(label = paste0(Percentage, "%")),
-    position = position_dodge(width = 0.9),
-    hjust = -0.1,
-    size = 3
-  )
-```
-```
-  geom_label(
-    aes(label = paste0(Percentage, "%")),
-    position = position_dodge(width = 0.9),
-    hjust = -0.1,
-    size = 3,
-    label.padding = unit(0.25, "lines"),
-    label.r = unit(0.15, "lines"),
-    label.size = 0.25,
-  )
-```
-```
-library(ggplot2)
-library(tidyr)
+import pandas as pd
 
-my_data <- data.frame(
-  Objects = c('A', 'B', 'C'),
-  P2000 = c(30,40,50),
-  P2010 = c(50,60,70),
-  P2020 = c(60,70,80)
+data = pd.read_csv('C:/Users/lazar/Pasta1.csv')
+
+melted_data = data.melt(
+    'Testing',
+    ['2000', '2010', '2020', '2030'],
+    'Decade',
+    'Percentage'
 )
 
-data_long = pivot_longer(
-  my_data,
-  cols = c(P2000, P2010, P2020),
-  names_to = "Year",
-  values_to = "Percentage"
+pivot_data = melted_data.pivot(
+        index="Testing", 
+        columns="Decade", 
+        values="Percentage"
 )
 
-ggplot(
-    data_long, 
-    aes(Objects, Percentage, fill = Year)
-  ) +
-  geom_bar(
-    stat = "identity",
-    position = "dodge"
-  ) +
-  geom_text(
-    aes(label = paste0(Percentage, "%")),
-    position = position_dodge(width = 0.9),
-    hjust = -0.1,
-    size = 3
-  ) +
-  coord_flip() +
-  labs(
-    title = "Title",
-    x = "Y",
-    y = "%",
-    fill = "Year",
-    caption = "Caption",
-    subtitle = "Subtitle"
-  ) +
-  scale_fill_discrete(labels = c(2000, 2010, 2020)) +
-  ylim(0, 100)
-  theme_gray()
+print(pivot_data.to_markdown())
 ```
