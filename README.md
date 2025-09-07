@@ -174,3 +174,9 @@ public class GlobalExceptionHandler {
     }
 }
 ```
+
+## Virtual Thread
+
+```
+spring.threads.virtual.enabled=true
+```
