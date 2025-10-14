@@ -184,6 +184,13 @@ spring.threads.virtual.enabled=true
 ## Python: formatação númerica BR com GridSpec
 
 ```
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.gridspec import GridSpec
+import matplotlib.ticker as ticker
+import locale
+
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 def format_brazilian(*args):
