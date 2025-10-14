@@ -180,3 +180,48 @@ public class GlobalExceptionHandler {
 ```
 spring.threads.virtual.enabled=true
 ```
+
+## Python: formatação númerica BR com GridSpec
+
+```
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+
+def format_brazilian(*args):
+    return locale.currency(args[0], grouping=True, symbol=None)
+
+fig = plt.figure(figsize=(12, 8))
+
+gs = GridSpec(3, 2, figure=fig)
+
+ax1 = fig.add_subplot(gs[0, :])
+ax2 = fig.add_subplot(gs[1, :])
+ax3 = fig.add_subplot(gs[2, :])
+
+sns.lineplot(df_bancos, x='ano', y='valor_incentivo', hue='nome_grupo', ax=ax1, errorbar=None)
+sns.lineplot(df_energia, x='ano', y='valor_incentivo', hue='nome_grupo', ax=ax2, errorbar=None)
+sns.lineplot(df_comunicacao, x='ano', y='valor_incentivo', hue='nome_grupo', ax=ax3, errorbar=None)
+
+titulos = ['Bancos', 'Energia', 'Comunicação']
+axes = [ax1, ax2, ax3]
+anos = df['ano'].unique().tolist()
+formatter = ticker.FuncFormatter(format_brazilian)
+for ax, titulo in zip(axes, titulos):
+    ax.set_title(titulo)
+    ax.set_xlabel('Ano')
+    ax.legend(title=None)
+    ax.set_xticks(anos)
+    ax.tick_params('x', rotation=90)
+    ax.yaxis.set_major_formatter(formatter)
+
+for ax in [ax2, ax3]:
+    ax.set_ylabel(None)
+
+for ax in [ax1, ax2]:
+    ax.set_ylabel('Valor do incentivo (R$)')
+
+ax1.legend(ncols=4)
+
+plt.tight_layout()
+fig.savefig('linha_historico_investimento_estatais', dpi=300, bbox_inches='tight')
+plt.show()
+```
