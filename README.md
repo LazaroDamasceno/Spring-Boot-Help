@@ -232,3 +232,27 @@ plt.tight_layout()
 fig.savefig('linha_historico_investimento_estatais', dpi=300, bbox_inches='tight')
 plt.show()
 ```
+
+## Adicionar % no mapa coroplético
+
+```
+LIMIAR_PARA_TEXTO_CLARO = mapa['pct_valor_incentivado'].mean() 
+
+for idx, row in mapa.iterrows():
+    valor = row['pct_valor_incentivado']
+    label = f"{valor:.2f}%" 
+
+    if valor > LIMIAR_PARA_TEXTO_CLARO:
+        text_color = 'black'
+    else:
+        text_color = 'white'
+        
+    ax.annotate(
+        text=label,
+        xy=row['coords'], 
+        horizontalalignment='center',
+        fontsize=6,
+        color=text_color,
+        weight='bold'
+    )
+```
