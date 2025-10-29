@@ -256,3 +256,25 @@ for idx, row in mapa.iterrows():
         weight='bold'
     )
 ```
+
+## Latex Table
+
+```
+\begin{table}[H]
+	\centering
+	\caption{}
+	\label{tab:}
+	\begin{tabular}{lc} 
+		\toprule
+		Unidade Federativa & (\%) \\ 
+		\midrule 
+		Paraná & 35,17\% \\ 
+		Rio Grande do Sul & 38,01\% \\ 
+		Santa Catarina & 26,02\% \\ 
+		Total & 100,00\% \\ 
+		\bottomrule 
+	\end{tabular}
+	\par
+	\footnotesize{Fonte: elaboração baseada em \cite{salicnet}.}
+\end{table}
+```
