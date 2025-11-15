@@ -278,3 +278,16 @@ for idx, row in mapa.iterrows():
 	\footnotesize{Fonte: elaboração baseada em \cite{salicnet}.}
 \end{table}
 ```
+
+## Como identificar um outlier
+
+```
+def is_outlier(q1, q3, number):
+    iqr = q3 - q1
+    lower_limit = q1 - 1.5*iqr
+    upper_limit = q3 + 1.5*iqr
+    if (number < lower_limit or number > upper_limit):
+        retun True
+    else:
+        return False
+```
