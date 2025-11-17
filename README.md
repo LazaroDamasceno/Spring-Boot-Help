@@ -279,6 +279,38 @@ for idx, row in mapa.iterrows():
 \end{table}
 ```
 
+```
+\begin{longtable}{llr}
+	\caption{Índices de democracia eleitoral do Brasil (1822-2024)}\label{tab:indices_democracia_br}\\
+	\toprule
+	\textbf{Número de observações} & \textbf{Quantidade} & \textbf{(\%)} \\
+	\midrule
+	\endfirsthead
+	\multicolumn{3}{c}%
+	{{\bfseries \tablename\ \thetable{} -- continuação}} \\
+	\toprule
+	\textbf{Número de observações} & \textbf{Quantidade} & \textbf{(\%)} \\
+	\midrule
+	\endhead
+	\midrule
+	\multicolumn{3}{r}{{\footnotesize Continua na próxima página}} \\
+	\endfoot
+	\bottomrule
+	\endlastfoot
+	0.0552 - 0.148 & 22 & 10,95\\
+	0.148 - 0.239 & 98 & 48,76\\
+	0.239 - 0.33 & 23 & 11,44\\
+	0.33 - 0.421 & 19 & 9,45\\
+	0.421 - 0.513 & 1 & 0,50\\
+	0.513 - 0.604 & 1 & 0,50\\
+	0.604 - 0.695 & 2 & 1,00\\
+	0.695 - 0.786 & 7 & 3,48\\
+	0.786 - 0.877 & 28 & 13,93\\
+	\midrule
+	\textbf{Total} & \textbf{201} & \textbf{100,00} \\
+\end{longtable}
+```
+
 ## Como identificar um outlier
 
 ```
