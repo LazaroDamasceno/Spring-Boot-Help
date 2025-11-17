@@ -288,3 +288,9 @@ def is_outlier(q1, q3, number):
     upper_limit = q3 + 1.5*iqr
     return number < lower_limit or number > upper_limit
 ```
+
+## Como saber o número idea de bins
+
+Para calcular o número ideal de bins para a Regra de Sturges, precisamos de uma fórmula que use o número de observações (pontos de dados) no seu conjunto de dados.
+
+A Regra de Sturges é dada pela fórmula: $$k = 1 + \log_2(N)$$
