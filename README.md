@@ -336,4 +336,39 @@ from numpy import log2
 def adequated_number_bins(n_items):
     return 1 + log2(n_items)
 ```
-## 
+
+## Gráfico de Dispersão dos Valores Reais versus Valores Preditos
+
+```
+plt.scatter(y_test, y_pred, label='Predição vs Real')
+
+min_val = min(min(y_test), min(y_pred))
+max_val = max(max(y_test), max(y_pred))
+
+plt.plot(
+    [min_val, max_val], 
+    [min_val, max_val], 
+    color='red', 
+    linestyle='--', 
+    label='Ajuste Perfeito (R²=1)'
+)
+
+plt.title('Y Real vs Y Predito (Avaliação do R²)')
+plt.xlabel('Y Real (y_test)')
+plt.ylabel('Y Predito (y_pred)')
+plt.legend()
+plt.show()
+```
+
+## Gráfico de resíduo
+
+```
+residuo = y_test - y_pred
+
+plt.scatter(y_pred, residuo, alpha=0.6)
+plt.axhline(y=0, color='red', linestyle='-') 
+plt.title('Gráfico de Resíduos')
+plt.xlabel('Valores Preditos (Y_pred)')
+plt.ylabel('Resíduos (Y_real - Y_pred)')
+plt.show()
+```
