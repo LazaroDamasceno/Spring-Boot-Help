@@ -7,7 +7,8 @@ public class SystemUser implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private UUID id; 
+}
 ```
 
 ## Customized annotation
