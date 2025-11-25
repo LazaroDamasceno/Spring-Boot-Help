@@ -315,9 +315,9 @@ for idx, row in mapa.iterrows():
 ## Como identificar um outlier
 
 ```
-def is_outlier(q1_q3, number):
-    q1 = q1_q3[0.25]
-    q3 = q1_q3[0.75]
+def is_outlier(data, number):
+    q1 = data.quantile(0.25)
+    q3 = data.quantile(0.75)
     iqr = q3 - q1
     lower_limit = q1 - 1.5*iqr
     upper_limit = q3 + 1.5*iqr
