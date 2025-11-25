@@ -373,3 +373,11 @@ plt.xlabel('Valores Preditos (Y_pred)')
 plt.ylabel('Resíduos (Y_real - Y_pred)')
 plt.show()
 ```
+
+## Como descobrir o número idela de cluster no KMeans
+
+Utilizar a fórmula sklearn.metrics.silhouette_score() presente em [link](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html).
+
+## Como descobrir se variáveis tem multicolinearidade
+
+Utilizar statsmodels.stats.outliers_influence.variance_inflation_factor presente em [link](https://www.statsmodels.org/stable/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html).
