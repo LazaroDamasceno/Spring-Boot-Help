@@ -375,7 +375,7 @@ plt.ylabel('Resíduos (Y_real - Y_pred)')
 plt.show()
 ```
 
-## Como descobrir o número idela de cluster no KMeans
+## Como descobrir o número ideal de cluster no KMeans
 
 Utilizar a fórmula sklearn.metrics.silhouette_score() presente em [link](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html).
 
