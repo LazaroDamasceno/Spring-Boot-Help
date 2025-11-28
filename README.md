@@ -382,3 +382,8 @@ Utilizar a fórmula sklearn.metrics.silhouette_score() presente em [link](https:
 ## Como descobrir se variáveis tem multicolinearidade
 
 Utilizar statsmodels.stats.outliers_influence.variance_inflation_factor presente em [link](https://www.statsmodels.org/stable/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html).
+
+## Consine similarity
+
+Compute cosine similarity between samples in X and Y. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
+
