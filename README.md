@@ -390,7 +390,13 @@ Compute cosine similarity between samples in X and Y. https://scikit-learn.org/s
 ## Como avaliar um cluster e avaliar o número ideal de cluster
 
 usar silhouette_score do sklearn. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html#sklearn.metrics.silhouette_score
-<<<<<<< HEAD
+
+````
+scores = {}
+n_cluster = range(2, 15)
+for num in n_cluster:
+    scores[num] = silhouette_score(df_trans, KMeans(n_clusters=num, random_state=42).fit(df_trans).labels_)
+```
 
 Pode usar também o método do joelho:
 
@@ -410,5 +416,3 @@ ax.set_ylabel('Distortion')
 plt.tight_layout()
 plt.show()
 ```
-=======
->>>>>>> f5ddba69ed1991a7f4dce7487825702e129e59cc
