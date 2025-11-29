@@ -396,6 +396,8 @@ scores = {}
 n_cluster = range(2, 15)
 for num in n_cluster:
     scores[num] = silhouette_score(df_trans, KMeans(n_clusters=num, random_state=42).fit(df_trans).labels_)
+
+max(scores, key=scores.get)
 ```
 
 Pode usar também o método do joelho:
