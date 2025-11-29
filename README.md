@@ -390,7 +390,3 @@ Compute cosine similarity between samples in X and Y. https://scikit-learn.org/s
 ## Como avaliar um cluster
 
 usar silhouette_score do sklearn. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html#sklearn.metrics.silhouette_score
-
-## Como fazer validação cruzada
-
-Usar cross_validate do sklearn. https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html
