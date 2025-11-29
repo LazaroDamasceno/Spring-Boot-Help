@@ -387,6 +387,25 @@ Utilizar statsmodels.stats.outliers_influence.variance_inflation_factor presente
 
 Compute cosine similarity between samples in X and Y. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
 
-## Como avaliar um cluster
+## Como avaliar um cluster e avaliar o número ideal de cluster
 
 usar silhouette_score do sklearn. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html#sklearn.metrics.silhouette_score
+
+Pode usar também o método do joelho:
+
+````
+distortions = []
+n_cluster = range(2, 15)
+for num in n_cluster:
+    temp_model = KMeans(n_clusters=num, random_state=42).fit(df_trans).inertia_
+    distortions.append(temp_model)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(n_cluster, distortions,marker='o')
+ax.grid()
+ax.set_xticks(n_cluster)
+ax.set_xlabel('Number of clusters')
+ax.set_ylabel('Distortion')
+plt.tight_layout()
+plt.show()
+```
