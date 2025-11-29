@@ -387,3 +387,6 @@ Utilizar statsmodels.stats.outliers_influence.variance_inflation_factor presente
 
 Compute cosine similarity between samples in X and Y. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
 
+## Como avaliar um cluster
+
+usar silhouette_score do sklearn. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html#sklearn.metrics.silhouette_score
