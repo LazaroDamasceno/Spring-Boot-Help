@@ -224,3 +224,5 @@ Se beneficiam:
 * KMeans
 * PCA
 * Neural Networks (Deep Learning)
+
+O log só faria sentido se tivesse distribuições muito enviesadas (skew > 1) ou variáveis com magnitudes muito diferentes.
