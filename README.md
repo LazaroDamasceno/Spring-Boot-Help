@@ -212,9 +212,9 @@ plt.show()
 ```
 ## Como aplicar transformações logarítmica para lidar com outliers, estabilizar a variância e Positive Skewness (Right Skew)
 
-Quando o dataframe NÃO tem zeros ou valores negativos: np.log(X)
+Quando o dataframe só tem valores positivod: np.log(X)
 
-Quando o dataframe tem zeros ou valores negativos: np.log1p(X)
+Quando o dataframe tem zeros: np.log1p(X)
 
 Se beneficiam: 
 
