@@ -391,7 +391,7 @@ Compute cosine similarity between samples in X and Y. https://scikit-learn.org/s
 
 usar silhouette_score do sklearn. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html#sklearn.metrics.silhouette_score
 
-````
+```
 scores = {}
 n_cluster = range(2, 15)
 for num in n_cluster:
@@ -402,7 +402,7 @@ max(scores, key=scores.get)
 
 Pode usar também o método do joelho:
 
-````
+```
 distortions = []
 n_cluster = range(2, 15)
 for num in n_cluster:
@@ -418,3 +418,17 @@ ax.set_ylabel('Distortion')
 plt.tight_layout()
 plt.show()
 ```
+## Como aplicar transformações logarítmica para lidar com outliers, estabilizar a variância e Positive Skewness (Right Skew)
+
+Quando o dataframe NÃO tem zeros ou valores negativos: np.log(X)
+
+Quando o dataframe tem zeros ou valores negativos: np.log1p(X)
+
+Se beneficiam: 
+
+* Modelos lineares e outros relacionados (regressão linear simples e múltipla, Ridge e Lasso, ANOVA, t/Z-test)
+* Regressçao logística
+* KNN
+* KMeans
+* PCA
+* Neural Networks (Deep Learning)
