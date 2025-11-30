@@ -210,6 +210,7 @@ ax.set_ylabel('Distortion')
 plt.tight_layout()
 plt.show()
 ```
+
 ## Como aplicar transformações logarítmica para lidar com outliers, estabilizar a variância e Positive Skewness (Right Skew)
 
 Quando o dataframe só tem valores positivod: np.log(X)
