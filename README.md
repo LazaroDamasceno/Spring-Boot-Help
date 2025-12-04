@@ -227,3 +227,10 @@ Se beneficiam:
 * Neural Networks (Deep Learning)
 
 O log só faria sentido se tivesse distribuições muito enviesadas (skew > 1) ou variáveis com magnitudes muito diferentes.
+
+## Como mostra tudo em polars
+
+```
+pl.Config.set_tbl_rows(-1)  
+pl.Config.set_tbl_cols(-1) 
+````
